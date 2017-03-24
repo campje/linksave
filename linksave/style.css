@@ -1,0 +1,339 @@
+/* global */
+
+body, input, button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #e9e9e9;
+}
+
+input {
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    color: #908d8d;
+}
+
+button {
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    color: #908d8d;
+    cursor: pointer;
+    height: 30px;
+}
+
+button:hover {
+    background-color: #60646D;
+    color: white;
+}
+
+#grayAll {
+    position: fixed;
+    z-index: 2;
+    position: inline-block;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+.grayback {
+    visibility: hidden;
+}
+
+/* header zone */
+
+header {
+    background-color: #2E373E;;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+    border-bottom: 2px solid rgba(44, 44, 44, 0.49);
+}
+
+#menu-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+#add-link {
+    position: absolute;
+    left: 55px;
+    top: 10px;
+    height: 40px;
+}
+
+#search-bar{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 40px;
+    padding-left: 5px;
+}
+
+/* menu zone */
+
+#menu {
+    position: fixed;
+    top: 62px;
+    background-color: #2E373E;;
+    z-index: 2;
+    height: calc(100% - 62px);
+    width: 250px;
+}
+
+#tag-list-menu {
+    margin-top: 10px;
+    padding-left: 0px;
+}
+
+.tag-li-menu {
+    list-style: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    margin: 2px;
+    padding: 3px;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.tag-li-menu:hover {
+
+}
+
+#show-tags {
+    width: 100%;
+    background: none;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.icon-tags-menu {
+    margin-left: 15px;
+}
+
+/* pop up zone */
+
+#add-popup {
+    background-color: #2E373E;;
+    margin: 10px;
+    position: fixed;
+    z-index: 3;
+    width: 420px;
+    height: 160px;
+    border-radius: 10px;
+    text-align: right;
+    top: calc((100% - 350px) / 2);
+    left: calc((100% - 420px) / 2);
+}
+
+#link-value {
+    display: block;
+    margin: auto;
+    width: 350px;
+    height: 25px;
+}
+
+#tags-value {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 350px;
+    height: 25px;
+}
+
+#add-button {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#close-popup {
+    font-size: 25px;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* color zone */
+
+.youtube-back {
+    background-color: #CC181E;
+    border: 2px solid #b6151b;
+    border-radius: 5px;
+    color: white;
+}
+
+.unknown-back {
+    background-color: #2E373E;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+    color: white;
+}
+
+.facebook-back {
+    background-color: #3B5998;
+    border: 2px solid #2d4473;
+    border-radius: 5px;
+    color: white;
+}
+
+.soundcloud-back {
+    background-color: #FF5600;
+    border: 2px solid #cf4905;
+    border-radius: 5px;
+    color: white;
+}
+
+.github-back {
+    background-color: #2E373E;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+    color: white;
+}
+
+.twitter-back {
+    background-color: #00aced;
+    border: 2px solid #0392c8;
+    border-radius: 5px;
+    color: white;
+}
+
+.wikipedia-back {
+    background-color: #2E373E;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+    color: white;
+}
+
+.steam-back {
+    background-color: #171A21;
+    border: 2px solid #050607;
+    border-radius: 5px;
+    color: white;
+}
+
+.spotify-back {
+    background-color: #2E373E;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+    color: white;
+}
+
+.dropbox-back {
+    background-color: #2E373E;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+    color: white;
+}
+
+.tripadvisor-back {
+    background-color: #589442;
+    border: 2px solid #457334;
+    border-radius: 5px;
+    color: white;
+}
+
+.amazon-back {
+    background-color: #2E373E;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+    color: white;
+}
+
+.instagram-back {
+    background-image: linear-gradient(to bottom left, #5C6CB3 20%, #D34270 50%, #F6AC58 70%);
+    border: 2px solid #afafaf;
+    border-radius: 5px;
+    color: white;
+}
+
+/* list zone */
+
+#lastSearch {
+    list-style: none;
+    color: #2E373E;;
+    margin-bottom: 12px;
+}
+
+#link-list {
+    position: absolute;
+    top: 60px;
+    width: 500px;
+}
+
+.listMenuActive {
+    left: 250px;
+}
+
+.link-li {
+    list-style: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.link-icon {
+    display: inline;
+}
+
+.link-container {
+    padding: 10px;
+}
+
+.link-el {
+    text-decoration: none;
+    color: white;
+    display: inline;
+    white-space: pre-line;
+}
+
+.tag-list {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.tag-li {
+    list-style: none;
+    display: inline;
+    margin: 5px;
+    font-size: 12px;
+    color: #b9b8b8;;
+}
+
+.date {
+    font-size: 12px;
+}
+
+.thumbnail {
+    display: block;
+}
+
+.vidthumbnail {
+    display: block;
+}
+
+.playYTB {
+    font-size: 35px;
+    height: 45px;
+}
+
+.playYTB:hover {
+    background-color: white;
+    color: #2E373E;
+}

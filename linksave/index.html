@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+
+<body>
+
+
+    <div id="app">
+
+        <header>
+            <i class="fa fa-bars" id="menu-button" v-on:click="menuActive = !menuActive"></i>
+            <button id="add-link" v-on:click="activePopup()"><i class="fa fa-plus-circle"></i>Ajouter un lien</button>
+            <input type="text" id="search-bar" v-model="searchvalue" v-on:keyup="search(searchvalue)" placeholder="Rechercher">
+        </header>
+
+
+        <div id="add-popup" v-if="popupActive">
+            <i class="fa fa-times-circle" id="close-popup" v-on:click="popupActive = !popupActive"></i>
+            <input type="text" id="link-value" placeholder="URL" v-model="newLinkURL">
+            <input type="text" id="tags-value" placeholder="Tags" v-model="newLinkTags">
+            <button id="add-button" v-on:click="addLink()">Valider</button>
+        </div>
+
+        <div id="grayAll" v-bind:class="{ grayback: !popupActive }">.</div>
+
+        <div id="menu" v-if="menuActive">
+
+            <button id="show-tags" v-on:click="showTags()"><i class="fa fa-tags"></i> Tags <i class="icon-tags-menu fa fa-caret-down"></i></button>
+            <ul id="tag-list-menu" v-if="tagMenuActive">
+                <li class="tag-li-menu" v-on:click="search('')">Tout</li>
+                <li class="tag-li-menu" v-for="tag in tags" v-on:click="search(tag)"> <i class="fa fa-tag"></i> {{ tag }}</li>
+            </ul>
+
+        </div>
+
+
+        <ul id="link-list" v-bind:class="{ listMenuActive: menuActive }">
+            <li id="lastSearch"> &#8627; {{ lastSearch }}</li>
+            <li class="link-li" v-for="(link, index) in currentList">
+                <div v-bind:class="[colorClasses[link.app], 'link-container']">
+                    <i v-bind:class="[iconClasses[link.app], 'link-icon']"></i>
+                    <a v-bind:href="link.url" class="link-el">{{ link.title }}</a>
+                    <img class="thumbnail" v-if="isImage(link.url)" v-bind:src="link.url" alt="link image">
+                    <!--
+                    <video class="vidthumbnail" v-if="isVideo(link.url)" v-bind:src="link.url" controls></video>
+                    <button class="playYTB" v-on:click="runYoutube(link.url, index)" v-if="isYoutube(link.url, index)"><i class="fa fa-play-circle"></i></button>
+-->
+                    <div v-bind:id=" 'player' + index.toString()"></div>
+                    <ul class="tag-list">
+                        <li class="tag-li" v-for="tag in link.tags">{{ tag }}</li>
+                    </ul>
+                    <span class="date">il y a {{ parseDate(link.date) }}</span>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
